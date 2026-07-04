@@ -7,10 +7,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-User-agent: Yeti
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-Sitemap: https://t3b07-yd-kb-info-2.pages.dev/sitemap.xml
+Sitemap: https://yeouido-song-review.node-link.shop/sitemap.xml
