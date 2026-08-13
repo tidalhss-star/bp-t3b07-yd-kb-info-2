@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (1/2) · t3b07-yd-kb-info-2</title>
+  <meta name="description" content="t3b07-yd-kb-info-2에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://yeouido-song-review.node-link.shop/posts.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* RESET & BASE */
+ *, *::before, *::after {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ html {
+ font-size: 16px;
+ scroll-behavior: smooth;
+ }
+ body {
+ font-family: 'Courier New', Courier, monospace;
+ background: #1a1a1a;
+ color: #f0f0f0;
+ line-height: 1.6;
+ min-height: 100vh;
+ border: 4px solid #e5ff00;
+ }
+ a {
+ color: #e5ff00;
+ text-decoration: none;
+ border-bottom: 2px solid transparent;
+ transition: border-color 0.2s;
+ }
+ a:hover {
+ border-bottom-color: #e5ff00;
+ }
+ img, svg {
+ max-width: 100%;
+ height: auto;
+ display: block;
+ }
+ ul, ol {
+ list-style: none;
+ }
+ /* BRUTALIST STRUCTURE */
+ .site-wrap {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 20px;
+ }
+ /* HEADER */
+ header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 20px 0;
+ border-bottom: 3px solid #e5ff00;
+ margin-bottom: 40px;
+ }
+ .logo {
+ font-size: 2.2rem;
+ font-weight: 900;
+ text-transform: uppercase;
+ letter-spacing: -2px;
+ color: #e5ff00;
+ text-shadow: 4px 4px 0 #000;
+ }
+ .logo small {
+ font-size: 0.9rem;
+ display: block;
+ color: #aaa;
+ letter-spacing: 0;
+ text-shadow: none;
+ }
+ /* NAV */
+ nav {
+ display: flex;
+ gap: 30px;
+ align-items: center;
+ }
+ nav a {
+ font-size: 1rem;
+ font-weight: 700;
+ text-transform: uppercase;
+ padding: 8px 12px;
+ border: 2px solid #e5ff00;
+ background: #000;
+ color: #e5ff00;
+ transition: all 0.2s;
+ }
+ nav a:hover {
+ background: #e5ff00;
+ color: #000;
+ border-color: #e5ff00;
+ }
+ .hamburger-menu {
+ display: none;
+ flex-direction: column;
+ cursor: pointer;
+ gap: 5px;
+ }
+ .hamburger-menu span {
+ width: 30px;
+ height: 4px;
+ background: #e5ff00;
+ border-radius: 2px;
+ }
+ @media (max-width: 768px) {
+ nav {
+ display: none;
+ flex-direction: column;
+ position: absolute;
+ top: 80px;
+ right: 20px;
+ background: #000;
+ border: 2px solid #e5ff00;
+ padding: 20px;
+ z-index: 999;
+ }
+ nav.active {
+ display: flex;
+ }
+ .hamburger-menu {
+ display: flex;
+ }
+ }
+ /* HERO */
+ .hero {
+ padding: 60px 0;
+ text-align: center;
+ border-bottom: 3px dashed #e5ff00;
+ margin-bottom: 40px;
+ }
+ .hero h1 {
+ font-size: 3rem;
+ font-weight: 900;
+ text-transform: uppercase;
+ color: #e5ff00;
+ text-shadow: 6px 6px 0 #000;
+ margin-bottom: 20px;
+ }
+ .hero p {
+ font-size: 1.2rem;
+ max-width: 700px;
+ margin: 0 auto;
+ color: #ccc;
+ }
+ /* SECTION */
+ section {
+ margin-bottom: 60px;
+ }
+ .section-title {
+ font-size: 2rem;
+ font-weight: 900;
+ text-transform: uppercase;
+ color: #e5ff00;
+ border-left: 8px solid #e5ff00;
+ padding-left: 20px;
+ margin-bottom: 30px;
+ }
+ /* CARDS */
+ .card-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 25px;
+ }
+ .card {
+ background: #222;
+ border: 3px solid #e5ff00;
+ padding: 25px;
+ transition: transform 0.2s, box-shadow 0.2s;
+ }
+ .card:hover {
+ transform: translate(-4px, -4px);
+ box-shadow: 8px 8px 0 #e5ff00;
+ }
+ .card h3 {
+ font-size: 1.4rem;
+ margin-bottom: 10px;
+ color: #e5ff00;
+ }
+ .card p {
+ color: #bbb;
+ margin-bottom: 10px;
+ }
+ .card .badge {
+ display: inline-block;
+ background: #e5ff00;
+ color: #000;
+ padding: 4px 10px;
+ font-weight: 700;
+ font-size: 0.8rem;
+ text-transform: uppercase;
+ margin-bottom: 10px;
+ }
+ /* FAQ */
+ .faq-list {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+ }
+ .faq-item {
+ background: #222;
+ border: 2px solid #444;
+ padding: 20px;
+ }
+ .faq-item h4 {
+ font-size: 1.2rem;
+ color: #e5ff00;
+ margin-bottom: 8px;
+ }
+ .faq-item p {
+ color: #bbb;
+ }
+ /* TEL LINK */
+ .tel-link {
+ display: inline-block;
+ background: #e5ff00;
+ color: #000;
+ font-weight: 900;
+ font-size: 1.5rem;
+ padding: 15px 30px;
+ border: none;
+ text-align: center;
+ margin: 20px auto;
+ transition: background 0.2s, color 0.2s;
+ }
+ .tel-link:hover {
+ background: #000;
+ color: #e5ff00;
+ border: 2px solid #e5ff00;
+ }
+ /* FOOTER */
+ footer {
+ border-top: 3px solid #e5ff00;
+ padding: 30px 0;
+ text-align: center;
+ color: #888;
+ font-size: 0.9rem;
+ }
+ </style>
+  <meta property="og:title" content="글 목록 (1/2) · t3b07-yd-kb-info-2">
+  <meta property="og:description" content="t3b07-yd-kb-info-2에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://yeouido-song-review.node-link.shop/posts.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <div class="logo">
+ 여의도 노래방
+ <small>진짜 노래방 찾는 형들을 위한 가이드</small>
+ </div>
+ <nav id="mainNav">
+ <a href="/">홈</a>
+ <a href="/info">정보</a>
+ <a href="/review">리뷰</a>
+ <a href="/map">지도</a>
+ 
+ </nav>
+ <div class="hamburger-menu" onclick="document.getElementById('mainNav').classList.toggle('active')">
+ 
+ 
+ 
+ </div>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 40개 · 1/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/field_note-001-1d9zhls.html">2 억 보증금으로 산 여의도 노래방, 월세보다 더 무거운 실수들</a>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260705-056.html">여의도에서 즐기는 노래방 이용 안내와 효율적인 공간 활용 방법</a>
+        <p class="post-item__summary">여의도는 수많은 기업과 사무실이 밀집한 지역인 만큼 업무가 끝난 뒤 동료들과 함께 시간을 보내기에 적합한 장소들이 많습니다. 특히 회식이나 모임의 마무리 장소로 노래방을 찾는 경우가 잦은데, 이 지</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260705-1090.html">여의도 노래방 선택의 맹점과 소형 객실의 음향적 가치</a>
+        <p class="post-item__summary">여의도 상권의 노래방을 떠올리면 대개 직장인들의 요란한 단체 회식이나 화려한 조명이 번쩍이는 대형 룸을 가장 먼저 연상한다. 하지만 대중의 이런 평범한 인식은 상업적 마케팅이 만들어낸 일종의 착시에</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0161.html">여의도 노래방 정보 찾는 분들을 위한 동대문 풋쌤 마사지 활용법</a>
+        <p class="post-item__summary">밤늦게까지 이어지는 회식이나 모임 후에 여의도 노래방 정보 등을 검색하며 다음 일정을 고민하는 분들이 많습니다. 하지만 과도한 유흥보다는 신체의 피로를 먼저 풀어주는 것이 장기적인 컨디션 관리에 훨</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0162.html">여의도 노래방 정보 검색보단 마포 합정 인디 소셜 라운지 가이드 활용</a>
+        <p class="post-item__summary">사람들은 흔히 모임 장소를 정할 때 여의도 노래방 정보만을 고집하는 경향이 있습니다. 그러나 이는 프라이빗한 대화를 나누거나 소규모 인원이 밀도 있게 교류하기에는 아쉬운 점이 많습니다. 진정한 소셜</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0163.html">여의도 노래방 정보 대신 배우는 4</a>
+        <p class="post-item__summary">최근 자기 계발을 위해 여의도 노래방 정보 등을 찾아 방황하기보다는 전문적인 기술을 익히려는 사람들이 늘고 있습니다. 특히 자동화 시스템에 대한 이해는 향후 개인 마케팅 효율을 비약적으로 높여줄 수</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0164.html">여의도 노래방 정보 찾아 헤매다 발견한 도메인 지수 탈모 방지 및 앵커 텍스트 이식 가이드</a>
+        <p class="post-item__summary">인터넷을 사용하며 여의도 노래방 정보 등을 검색하다 보면 본인의 웹사이트 순위가 궁금해지는 순간이 오지 않으십니까? 웹사이트의 성장은 정기적인 점검이 필요한 생명체와 같아서 작은 방치도 큰 지수 하</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0165.html">여의도 노래방 정보 확인을 통한 마포 럭셔리 단체 가라오케 예약 가이드</a>
+        <p class="post-item__summary">여의도 노래방 정보 검색을 시작으로 마포 일대의 고급 가라오케를 섭외하는 과정은 체계적인 준비가 필요합니다. 단순히 위치만 고려하기보다는 모임의 성격과 인원을 먼저 확정해야 합니다. 관련 정보를 찾</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0166.html">여의도 노래방 정보 분석을 활용한 구글 알고리즘 감점 치료 및 백링크 수술실</a>
+        <p class="post-item__summary">여의도 노래방 정보 관련 키워드를 분석하다 보면 디지털 환경에서의 신뢰도 구축이 얼마나 중요한지 알게 됩니다. 이는 검색엔진 최적화 과정에서 ishikyujin 운영과 유사한 정밀함을 요구합니다. </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0167.html">여의도 노래방 정보 확인을 위한 마포 코인노래방 방음 시설 비교 가이드</a>
+        <p class="post-item__summary">여의도 노래방 정보 데이터를 조사하다 보면 마포 인근의 코인노래방 이용 시 소음 문제로 불편을 겪는 사례가 종종 발견됩니다. 많은 이용자가 예약을 서두르다가 정작 시설의 기본인 방음 상태를 놓치는 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0168.html">여의도 노래방 정보 수집을 통해 보는 마포 셔츠룸 예약 시 눈탱이 피하는 법</a>
+        <p class="post-item__summary">여의도 노래방 정보 검색과 마포 지역의 셔츠룸 이용을 계획 중이라면 과도한 추가 비용을 방지하는 노력이 필수입니다. 무분별한 예약은 예상치 못한 금전적 손실로 이어질 수 있으므로 각별한 주의가 요구</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0169.html">여의도 노래방 정보 확인 후 마포 단체 회식용 대형 룸 노래방 가격 정보 비교</a>
+        <p class="post-item__summary">직장 동료들과 업무를 마친 뒤 마땅한 장소를 찾지 못해 당황했던 경험은 누구나 한 번쯤 있을 것입니다. 여의도 노래방 정보 등을 사전에 파악하고 이동하지 않으면 인원이 많은 단체 회식의 경우 자리가</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0170.html">여의도 노래방 정보 활용하는 구글 틈새 키워드 트래픽 외환 거래 전략</a>
+        <p class="post-item__summary">많은 투자자가 외환 거래가 오직 거시 경제 지표에 의해서만 결정된다고 오해합니다. 하지만 여의도 노래방 정보와 같은 특정 지역 기반 키워드의 검색 패턴을 분석하여 트래픽의 흐름을 읽는 것은 매우 중</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0171.html">여의도 노래방 정보 기반 마포 유흥 투명 정찰제 가격 정보 디렉토리 사용법</a>
+        <p class="post-item__summary">업체를 방문하기 전 인원 구성에 따른 견적 산출이 명확해야 불쾌한 상황을 방지할 수 있습니다. 여의도 노래방 정보를 참고하여 지역 내 유사 업종의 평균가를 파악하는 것은 현명한 소비자의 기본 소양입</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0172.html">여의도 노래방 정보 공유하는 마포 셔츠룸 리얼 후기 소셜 마케팅 가이드</a>
+        <p class="post-item__summary">여러분은 평소 특정 업체를 선택할 때 무엇을 가장 우선순위에 두시나요? 여의도 노래방 정보를 찾던 중 우연히 접하게 된 후기들이 실제 방문 결정에 얼마나 큰 영향을 미치는지 생각해 본 적이 있을 것</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0173.html">여의도 노래방 정보 확인 후 마포 홍대 로컬 럭셔리 밤문화 가이드 살피기</a>
+        <p class="post-item__summary">최근 유흥 문화에 대한 관심이 높아지면서 여의도 노래방 정보를 찾는 이들이 마포와 홍대 지역으로 눈길을 돌리고 있습니다. 단순한 유흥을 넘어 세련된 공간을 찾는 방문객들은 체계적인 검색을 통해 정보</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0174.html">여의도 노래방 정보 대조로 보는 마포 홍대 단체 가라오케 예약 가이드</a>
+        <p class="post-item__summary">여의도 노래방 정보를 검색하는 사람들은 종종 단체 모임을 위해 마포와 합정 인근의 공간을 비교 대조합니다. 여의도는 업무 중심지로서의 정돈된 느낌을 주는 반면, 홍대와 합정은 자유롭고 다채로운 매력</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0175.html">여의도 노래방 정보 비교하며 배우는 합정 셔츠룸 단골들이 뽑은 핫플 매거진 이용법</a>
+        <p class="post-item__summary">여의도 노래방 정보를 열심히 찾아보고 방문했으나, 예약 절차에서 미숙함을 보여 실패를 경험하는 경우가 종종 발생합니다. 많은 이들이 실패하는 지점은 업체의 예약 시스템을 가볍게 여기고 무작정 방문하</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0176.html">여의도 노래방 정보 검토 후 구글 알고리즘 고신용 도메인 보증 카드 발급 절차 확인</a>
+        <p class="post-item__summary">여의도 노래방 정보를 분석하며 지역 내 접근성을 따져보는 것은 특정 서비스의 신뢰도를 판단하는 첫걸음입니다. 지리적 위치가 매장의 관리 수준을 반영하듯, 온라인 도메인 또한 검색 알고리즘 상에서 얼</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0317.html">여의도 노래방 정보 확인을 위한 구글 봇 정밀 검진 및 크롤 버짓 밀착 간호 절차</a>
+        <p class="post-item__summary">여의도 노래방 정보를 찾는 사용자들은 수많은 데이터 중에서 신뢰할 수 있는 정보를 가려내야 합니다. 웹상의 수많은 리뷰가 실제 이용자의 경험인지 광고성 게시물인지 판별하는 작업은 검색 엔진의 최적화</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <span class="pager__current">1</span>
+      <a class="pager__link" href="posts-2.html">2</a>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
